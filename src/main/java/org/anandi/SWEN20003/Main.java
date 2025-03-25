@@ -1,5 +1,6 @@
 package org.anandi.SWEN20003;
 
+import org.anandi.SWEN20003.workshops.workshop1.Workshop1;
 import org.anandi.SWEN20003.workshops.workshop3.Household;
 import org.anandi.SWEN20003.workshops.workshop3.Person;
 import org.anandi.SWEN20003.workshops.workshop3.Point;
@@ -15,14 +16,7 @@ import java.util.Random;
 public class Main {
 
     public static void main(String[] args) {
-        String a = "a";
-        String b = "a";
-        if (a == b) {
-            System.out.println("Similar strings");
-        } else {
-            System.out.println("Different strings");
-        }
-
+        new Workshop1().question2();
     }
 
 }

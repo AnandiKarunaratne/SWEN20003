@@ -8,23 +8,21 @@ public class Main {
     }
 
     private static Request getRequest(String[] args) {
-        if (args.length == 0) {
-            System.out.println("Must pass at least one argument.");
+        if(args.length == 0) {
+            System.out.println("Must pass at least 1 argument.");
             System.exit(-1);
         } else if (args[0].equalsIgnoreCase("http")) {
             if (args.length < 4) {
-                System.out.println("Must pass 4 arguments for HTTP.");
+                System.out.println("Must pass 4 arguments.");
                 System.exit(-1);
             } else {
                 return new HttpRequest(args[1], args[3], args[2]);
             }
         } else if (args[0].equalsIgnoreCase("ftp")) {
             if (args.length < 3) {
-                System.out.println("Must pass 3 arguments for FTP.");
+                System.out.println("Must pass 3 arguments.");
                 System.exit(-1);
-            } else {
-                return new FtpRequest(args[1], args[2]);
-            }
+            } else return new FtpRequest(args[1], args[2]);
         }
         return null;
     }

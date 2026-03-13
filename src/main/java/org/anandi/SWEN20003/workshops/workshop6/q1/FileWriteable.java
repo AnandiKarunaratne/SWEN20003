@@ -1,0 +1,10 @@
+package org.anandi.SWEN20003.workshops.workshop6.q1;
+
+import java.io.BufferedWriter;
+import java.io.IOException;
+
+public interface FileWriteable {
+
+    void writeToFile(BufferedWriter writer) throws IOException;
+
+}

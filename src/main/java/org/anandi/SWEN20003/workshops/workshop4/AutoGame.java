@@ -25,10 +25,10 @@ public class AutoGame extends AbstractGame {
     // for rounding double number
     private static DecimalFormat df = new DecimalFormat("#.##");
 
-    private void setPlayerDirectionTo(Point destination) {
-        double length = new Point(playerX, playerY).distanceTo(destination);
-        playerDirectionX = (destination.x - playerX) / length;
-        playerDirectionY = (destination.y - playerY) / length;
+    private void setPlayerDirectionTo() {
+        double length = new Point(playerX, playerY).distanceTo(AutoGame.BALL_POINT);
+        playerDirectionX = (AutoGame.BALL_POINT.x - playerX) / length;
+        playerDirectionY = (AutoGame.BALL_POINT.y - playerY) / length;
     }
 
     @Override
@@ -37,7 +37,7 @@ public class AutoGame extends AbstractGame {
             Window.close();
         } else {
             if (input.wasPressed(Keys.ENTER)) {
-                setPlayerDirectionTo(BALL_POINT);
+                setPlayerDirectionTo();
                 playerX += STEP_SIZE * playerDirectionX;
                 playerY += STEP_SIZE * playerDirectionY;
                 System.out.println(df.format(playerX) + ", " + df.format(playerY));

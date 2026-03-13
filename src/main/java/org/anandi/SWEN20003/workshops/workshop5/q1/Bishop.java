@@ -8,7 +8,6 @@ public class Bishop extends Piece {
 
     @Override
     public boolean isValidMove(int toRow, int toColumn) {
-        System.out.println("Rook class: isValidMove() method");
         if (!super.isValidMove(toRow, toColumn)) {
             return false;
         }

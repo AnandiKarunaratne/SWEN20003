@@ -2,8 +2,8 @@ package org.anandi.SWEN20003.workshops.workshop5.q2;
 
 public class Rectangle extends Shape {
 
-    private double width;
-    private double height;
+    private final double width;
+    private final double height;
 
     public Rectangle(double x, double y, double width, double height) {
         super(x, y);
@@ -18,7 +18,8 @@ public class Rectangle extends Shape {
 
     @Override
     public String toString() {
-        return "Rectangle with width = " + width + " and height = " + height + ".";
+        return "Rectangle with width = " + width + " and height = " +
+                height + ".";
     }
 
     @Override

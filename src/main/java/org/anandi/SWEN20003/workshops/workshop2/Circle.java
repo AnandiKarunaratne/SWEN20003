@@ -1,10 +1,10 @@
 package org.anandi.SWEN20003.workshops.workshop2;
 
-import java.util.Objects;
-
 public class Circle {
 
-    private double radius, x, y;
+    private double radius;
+    private double x;
+    private double y;
 
     public Circle() {
         this.radius = 1;
@@ -24,25 +24,13 @@ public class Circle {
         this.y = y;
     }
 
-    @Override
     public String toString() {
-        return "Circle{" +
-                "radius=" + radius +
-                ", x=" + x +
-                ", y=" + y +
-                '}';
+        return "This circle has a radius of " + radius + " and is at (" + x + ", " + y + ").";
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Circle circle = (Circle) o;
-        return Double.compare(circle.radius, radius) == 0 && Double.compare(circle.x, x) == 0 && Double.compare(circle.y, y) == 0;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(radius, x, y);
+    public boolean equals(Circle otherCircle) {
+        return (this.radius == otherCircle.radius) &&
+                (this.x == otherCircle.x) &&
+                (this.y == otherCircle.y);
     }
 }

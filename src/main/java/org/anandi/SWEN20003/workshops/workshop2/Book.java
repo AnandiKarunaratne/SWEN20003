@@ -4,10 +4,12 @@ import java.util.Objects;
 
 public class Book {
 
-    private String author, title;
+    public String author;
+    private String title;
     private boolean isBorrowed = false;
     private String borrowedBy = null;
-    private static int numOfBorrows = 0;
+
+    private static int numBorrows = 0;
 
     public Book(String author, String title) {
         this.author = author;
@@ -15,53 +17,44 @@ public class Book {
     }
 
     public String getAuthor() {
-        return author;
+        return this.author;
     }
 
     public String getTitle() {
-        return title;
+        return this.title;
     }
 
     public boolean isBorrowed() {
         return isBorrowed;
     }
 
-    @Override
     public String toString() {
         return author + ": " + title;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Book book = (Book) o;
-        return isBorrowed == book.isBorrowed && Objects.equals(author, book.author) && Objects.equals(title, book.title);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(author, title, isBorrowed);
+    public boolean equals(Book otherBook) {
+        return this.author.equals(otherBook.getAuthor()) &&
+                this.title.equals(otherBook.getTitle());
     }
 
     public void borrow(String borrowedBy) {
-        if(!isBorrowed) {
-            isBorrowed = true;
+        if (!isBorrowed) {
+            this.isBorrowed = true;
             this.borrowedBy = borrowedBy;
-            numOfBorrows++;
+            numBorrows++;
         }
     }
 
     public void returnBook() {
-        if(isBorrowed) {
-            isBorrowed = false;
-            borrowedBy = null;
-            numOfBorrows--;
+        if (isBorrowed) {
+            this.isBorrowed = false;
+            this.borrowedBy = null;
+            numBorrows--;
         }
     }
 
-    public static int getNumOfBorrows() {
-        return numOfBorrows;
+    public static int getNumBorrows() {
+        return numBorrows;
     }
 
 }

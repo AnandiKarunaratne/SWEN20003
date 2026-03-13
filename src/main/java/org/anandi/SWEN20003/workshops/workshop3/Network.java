@@ -47,9 +47,9 @@ public class Network {
 
     public Channel lookupShow(Show show) {
         for (int i = 0; i < numOfChannels; i++) {
-            if (channels[i].hasShow(show)) {
+//            if (channels[i].hasShow(show)) {
                 return channels[i];
-            }
+//            }
         }
         return null;
     }

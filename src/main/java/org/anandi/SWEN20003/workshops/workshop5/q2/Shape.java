@@ -10,9 +10,9 @@ public abstract class Shape {
         this.y = y;
     }
 
-    abstract double getArea();
+    public abstract double getArea();
 
-    abstract double getPerimeter();
+    public abstract double getPerimeter();
 
     public String toString() {
         return "Plain Shape";

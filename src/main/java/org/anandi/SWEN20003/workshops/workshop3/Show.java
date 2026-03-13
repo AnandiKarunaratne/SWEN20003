@@ -4,36 +4,30 @@ public class Show {
 
     private final String name;
     private final int duration;
-    private final int airTimeHrs;
-    private final int airTimeMins;
+    private final int airHours;
+    private final int airMinutes;
 
-    public Show(String name, int duration, int airTimeHrs, int airTimeMins) {
+    public Show(String name, int duration, int airHours, int airMinutes) {
         this.name = name;
         this.duration = duration;
-        this.airTimeHrs = airTimeHrs;
-        this.airTimeMins = airTimeMins;
+        this.airHours = airHours;
+        this.airMinutes = airMinutes;
     }
 
-    // getters
     public String getName() {
-        return name;
+        return this.name;
     }
 
-    // start time in minutes
     public int getStartTime() {
-        return this.airTimeHrs * 60 + this.airTimeMins;
+        return airHours * 60 + airMinutes; // dealing with minutes only
     }
 
-    // end time in minutes
     public int getEndTime() {
-        return getStartTime() + this.duration;
+        return getStartTime() + duration;
     }
 
-    public boolean isOverlapping(Show other) {
-        // Check if this starts while other is on
-        boolean check1 = this.getStartTime() >= other.getStartTime() && this.getStartTime() < other.getEndTime();
-        // Check if other starts while this is on
-        boolean check2 = this.getStartTime() <= other.getStartTime() && this.getEndTime() > other.getStartTime();
-        return check1 || check2;
+    public boolean overlaps(Show other) {
+        return (getStartTime() >= other.getStartTime() && getStartTime() < other.getEndTime()) ||
+                (getStartTime() <= other.getStartTime() && getEndTime() > other.getStartTime());
     }
 }

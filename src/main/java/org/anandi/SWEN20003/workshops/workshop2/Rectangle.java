@@ -3,7 +3,6 @@ package org.anandi.SWEN20003.workshops.workshop2;
 import java.util.Objects;
 
 public class Rectangle {
-
     private double left, top, width, height;
 
     public Rectangle() {
@@ -37,12 +36,11 @@ public class Rectangle {
                 '}';
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Rectangle rectangle = (Rectangle) o;
-        return Double.compare(rectangle.left, left) == 0 && Double.compare(rectangle.top, top) == 0 && Double.compare(rectangle.width, width) == 0 && Double.compare(rectangle.height, height) == 0;
+    public boolean equals(Rectangle rectangle) {
+        return Double.compare(rectangle.left, left) == 0 &&
+                Double.compare(rectangle.top, top) == 0 &&
+                Double.compare(rectangle.width, width) == 0 &&
+                Double.compare(rectangle.height, height) == 0;
     }
 
     @Override

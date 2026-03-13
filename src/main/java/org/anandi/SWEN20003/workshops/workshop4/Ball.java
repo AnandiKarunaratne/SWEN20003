@@ -9,6 +9,8 @@ public class Ball {
 
     private final Image ballImage = new Image("res/ball.png");
 
+    private final String something;
+
     private static final double STEP_SIZE = 0.5;
 
     private double x;
@@ -19,6 +21,7 @@ public class Ball {
     public Ball() {
         setRandomPosition();
         setRandomDirection();
+        something = "eifjois";
     }
 
     public Point getPosition() {
